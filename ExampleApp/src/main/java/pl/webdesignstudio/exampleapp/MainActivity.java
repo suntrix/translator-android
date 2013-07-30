@@ -1,11 +1,10 @@
 package pl.webdesignstudio.exampleapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
-import android.widget.TextView;
-
-import java.util.Arrays;
+import android.view.View;
 
 import pl.webdesignstudio.translator.Translator;
 
@@ -17,15 +16,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_main);
-
-        Translator translator = Translator.getInstance(this);
-        translator.translationsLanguageCode = "fr";
-//        translator.loadTranslations(Arrays.asList("fr"));
-
-        translator.translateTextView((TextView)findViewById(id.translatedTextView));
-//
-//        TextView translatedTextView = (TextView)findViewById(id.translatedTextView);
-//        translatedTextView.setText(translator.translate(translatedTextView.getText().toString()));
     }
 
 
@@ -34,6 +24,22 @@ public class MainActivity extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    public void frButtonTouched(View view) {
+        Translator translator = Translator.getInstance(this);
+        translator.translationsLanguageCode = "fr";
+
+        Intent intent = new Intent(this, ExampleUITranslationsActivity.class);
+        startActivity(intent);
+    }
+
+    public void plButtonTouched(View view) {
+        Translator translator = Translator.getInstance(this);
+        translator.translationsLanguageCode = "pl";
+
+        Intent intent = new Intent(this, ExampleUITranslationsActivity.class);
+        startActivity(intent);
     }
     
 }

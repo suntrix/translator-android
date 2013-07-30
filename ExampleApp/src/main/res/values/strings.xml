@@ -4,5 +4,6 @@
     <string name="app_name">ExampleApp</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_example_uitranslations">ExampleUITranslationsActivity</string>
 
 </resources>
