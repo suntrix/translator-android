@@ -19,7 +19,7 @@ local.properties
 .classpath
 .project
 
-.idea
+#.idea
 #.gradle
 ExampleApp/build
 Translator/build
