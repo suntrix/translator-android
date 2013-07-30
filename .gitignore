@@ -20,6 +20,6 @@ local.properties
 .project
 
 .idea
-.gradle
+#.gradle
 ExampleApp/build
 Translator/build
