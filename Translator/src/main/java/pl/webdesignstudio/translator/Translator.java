@@ -102,19 +102,31 @@ public class Translator extends BaseTranslator {
     }
 
     public void translateButton(Button button, String language) {
-
+        button.setText(this.translate(button.getText().toString(), language));
     }
 
     public void translateButton(Button button) {
-
+        this.translateButton(button, this.translationsLanguageCode);
     }
 
     public void translateButtons(ArrayList<Button> buttons, String language) {
+        ArrayList<String> texts = new ArrayList<String>();
 
+        for ( Button button : buttons ) {
+            texts.add(button.getText().toString());
+        }
+
+        ArrayList<String> translatedTexts = this.translateMany(texts, language);
+
+        int index = 0;
+        for ( Button button : buttons ) {
+            button.setText(translatedTexts.get(index));
+            index++;
+        }
     }
 
     public void translateButtons(ArrayList<Button> buttons) {
-
+        this.translateButtons(buttons, this.translationsLanguageCode);
     }
 
 }
